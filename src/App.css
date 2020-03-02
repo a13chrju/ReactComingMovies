@@ -1,0 +1,16 @@
+
+body {
+  background: #292929;
+}
+
+
+.App {
+  max-width: 800px;
+  margin: auto;
+  background:#232323;
+}
+
+.pure-form {
+  background-color: #f1f1f1;
+    padding: 40px;
+}

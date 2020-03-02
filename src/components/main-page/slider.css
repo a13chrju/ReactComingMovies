@@ -1,0 +1,83 @@
+ul {
+   
+    transition: transform 800ms ease 100ms;
+    position: relative;list-style-type: none;
+
+    padding: 0;
+    display: flex;
+    transition: transform 500ms ease 120ms;
+    z-index: 3;
+}
+
+
+li{
+    background:url("https://image.tmdb.org/t/p/w185_and_h278_bestv2/oai3xLBQHpIh18VJdRCcL7D0Yg0.jpg");
+    background-position: center;background-size:cover;
+        display: inline-block;
+        flex: 0 0 20%;
+        transition: transform 200ms ease 120ms;
+        padding-top:27%;
+        position: relative;
+    
+}
+
+@media(min-width:781px){
+    li{
+            flex: 0 0 20%;
+            padding-top:30%; 
+    }
+}
+
+@media(max-width:780px){
+    li{
+            flex: 0 0 33.3%;
+            padding-top:50%; 
+    }
+}
+
+@media(max-width:500px){
+    li{
+            flex: 0 0 50%;
+            padding-top:80%; 
+    }
+}
+li:hover {
+    transform: translateY(-10%);
+  }
+/*
+li:hover {
+    transform: scale(1.1) !important;
+    transform: translateY(-10%);
+  }
+
+  ul:hover li {
+    transform: translateX(-10%);
+   /* opacity:0.8;
+   }
+
+  li:hover ~li {
+   transform: translateX(10%);
+   
+  }*/
+
+
+.slider_wrap{
+    margin: 0px 40px;
+overflow: hidden;
+position: relative;}
+
+.moviesContain {
+    background:#383838;
+}
+
+.grayT {
+    color: #d6d6d6;
+}
+.grayerT{
+    color: #b5b5b5;
+}
+.titleFlex {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+}
