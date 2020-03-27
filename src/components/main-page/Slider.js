@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './slider.css';
 import axios from 'axios'
 import SliderTitle from './SliderTitle';
+import Movie from './movie';
 
 export class Slider extends Component {
     constructor(props) {
@@ -18,6 +19,7 @@ export class Slider extends Component {
         }
         this.slideRight = this.slideRight.bind(this);
         this.updateDimensions = this.updateDimensions.bind(this);
+        this.addTitleCenter = this.addTitleCenter.bind(this);
     }
 
     slideRight(){
@@ -104,9 +106,10 @@ export class Slider extends Component {
 
             var fetheced = new Array();
             fetheced = response.data.results;
-            fetheced = fetheced.filter(word => word.poster_path != null)
+           
+            fetheced = fetheced.filter(word => word.poster_path != null);
 
-            this.setState({ posts : fetheced})
+            this.setState({ posts : fetheced});
 
             console.log(response.data.total_pages);
             if(response.data.total_pages > 1){
@@ -132,17 +135,21 @@ export class Slider extends Component {
     render() {
         let style = {width:"auto"}
         let classDisabled = "";
+        let classHidden = "";
         const {posts} = this.state
         if(this.state.posts.length <= 5){
             classDisabled = "pure-button-disabled";
         }
+        if(this.state.posts.length <= 0){
+            classHidden = "hidden";
+        }
         return (
           
-            <div className="slider_wrap">
+            <div className={`slider_wrap ${classHidden}`}>
                 <SliderTitle current={this.state.sliderPage} max={this.state.max} title={this.props.title} amount={this.state.posts.length}></SliderTitle>
                 <div className="moviesContain">
                     <ul ref={this.containerRef}>
-                        {posts.map(item => <li key={item.id} style={Object.assign({}, style, {backgroundImage:"url(https://image.tmdb.org/t/p/w185_and_h278_bestv2/" + item.poster_path + ")"})}><div className="child"></div></li> )}
+                        {posts.map(item => <Movie key={item.id} onClick={this.addTitleCenter} backg={item.poster_path} id={item.id} popularity={item.popularity} release={item.release_date} title={item.original_title} overview={item.overview} url={item.poster_path}></Movie> )}
                     </ul>
                 </div>
                 <button className={`pure-button pure-button-primary ${classDisabled}`} onClick={this.slideRight }>slide right</button>

@@ -8,7 +8,7 @@ export class Mainpage extends Component {
         super(props)
     
         this.state = {
-             year: "2020-02-02"
+             year: "2020-03-27"
         }
         this.getStateFromCHild = this.getStateFromCHild.bind(this);
     }
@@ -24,7 +24,7 @@ export class Mainpage extends Component {
         return (
             <div>
                 <SearchForm saveState={this.getStateFromCHild}></SearchForm>
-                <Slider year={this.state.year} company={2} title={"disney"}></Slider>
+                <Slider year={this.state.year} company={2} title={"Disney"}></Slider>
                 <Slider year={this.state.year} company={420} title={"Marvel"}></Slider>
                 <Slider year={this.state.year} company={4} title={"Paramount"}></Slider>
                 <Slider year={this.state.year} company={25} title={"20th Century Fox"}></Slider>
