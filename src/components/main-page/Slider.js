@@ -101,9 +101,7 @@ export class Slider extends Component {
         //get movie data from api
         axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=07ac3ec05d3f7f7c855f9e4befb6bed6&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&primary_release_date.gte=${this.props.year}&with_companies=${this.props.company}`)
         .then(response => {
-          
-            const words = ['spray', 'limit', 'elite', 'exuberant', 'destruction', 'present'];
-
+        
             var fetheced = new Array();
             fetheced = response.data.results;
            
@@ -111,7 +109,7 @@ export class Slider extends Component {
 
             this.setState({ posts : fetheced});
 
-            console.log(response.data.total_pages);
+            console.log(response.data);
             if(response.data.total_pages > 1){
                 let ids = Array.from({length: response.data.total_pages, start: 1}, (v, k) => k+1)
                 ids.shift();
@@ -133,6 +131,7 @@ export class Slider extends Component {
    
 
     render() {
+       
         let style = {width:"auto"}
         let classDisabled = "";
         let classHidden = "";
@@ -144,7 +143,7 @@ export class Slider extends Component {
             classHidden = "hidden";
         }
         return (
-          
+         
             <div className={`slider_wrap ${classHidden}`}>
                 <SliderTitle current={this.state.sliderPage} max={this.state.max} title={this.props.title} amount={this.state.posts.length}></SliderTitle>
                 <div className="moviesContain">

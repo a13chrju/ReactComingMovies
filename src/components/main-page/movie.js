@@ -10,7 +10,8 @@ class Movie extends Component {
             url: "",
             title: "",
             release: "",
-            overview: ""
+            overview: "",
+            id: null
         }
         this.clickedMovie = this.clickedMovie.bind(this);
        
@@ -27,7 +28,8 @@ class Movie extends Component {
             popularity: this.props.popularity,
             title: this.props.title,
             release: this.props.release.replace("-", "/").replace("-", "/"),
-            overview: this.props.overview
+            overview: this.props.overview,
+            id: this.props.id
         });
     }
 
